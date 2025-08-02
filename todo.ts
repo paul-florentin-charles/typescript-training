@@ -41,7 +41,10 @@ function renderTasks() {
 }
 
 // Handle form submission
-document.getElementById("task-form")?.addEventListener("submit", function (e) {
+let taskForm = document.getElementById("task-form");
+if (taskForm == null) throw new Error("element with ID 'task-form' does not exist");
+
+taskForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const input = <HTMLInputElement>document.getElementById("task-title");
     if (input == null) throw new Error("element with ID 'task-title' does not exist");
